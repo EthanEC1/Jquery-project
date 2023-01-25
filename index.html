@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery101</title>
+    <style>
+        .header {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .name {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .height {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .image {
+            height: 250px;
+            width: 10%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div>
+   
+  <img class="image" src="" alt="image">
+  <button class="generator" style="display: block;">Randomize!</button>
+    <h1 class="header">Name:</h1>
+    <h2 class="name"></h2>
+    <h1 class="header">Height:</h1>
+    <h2 class="height"></h2>
+
+
+
+
+</div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script>
+    <script>
+    // $(selector).event(function(){
+
+    // })
+
+//AJAX REQUEST USING jQuery 2 !↓↓↓!
+
+    //$.post('https:http bin.org/post', {"Instagram": "@coding.for.everybody"}, function(data) {
+  //  console.log("POST WAS COMPLETE WITH THIS DATA:")
+    //console.log(data)
+//})
+    $(document).ready(function(){
+        //jQuery code in here
+$(".generator").on("click", function(){
+    const randomNum = Math.ceil(Math.random() * 88)
+    $.get(`https://akabab.github.io/starwars-api/api/id/${randomNum}.json`, function(data){
+console.log(data)
+$(".name").text(data ['name'])
+$(".height").text(data ['height'])
+$(".image").attr("src", data['image'])
+})
+})
+})
+    
+
+
+
+
+    </script>
+</body>
+</html>
